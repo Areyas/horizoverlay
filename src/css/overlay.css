@@ -112,6 +112,10 @@
   background: rgba(0, 0, 0, 0.1);
 }
     */
+row.self, .damage-stats-dps {
+  font-size: 10px;
+  font-weight: bold;
+}
 .row .damage-percent-bg {
   height: 2px;
   background: rgba(0, 0, 0, 0.3);
@@ -138,17 +142,16 @@
 .row .dps {
   color: #fff;
   text-shadow: 0 0 5px #000;
-  padding: 0 0 2px 8px;
-  margin: 3px 0 0 0;
+  padding: 0 0 2px 13px;
+  margin: 3px 0 3px 0;
   flex-grow: 1;
   position: relative;
   text-align: left;
 }
 .row.self .dps {
   color: #000;
-  text-shadow: none;
+  text-shadow: 0 0 5px #000;
 }
-
 .row .data-items:before {
   background: rgba(0, 0, 0, 0.3);
   transform: skew(-30deg);
@@ -165,16 +168,16 @@
 .row div.dps > div {
   /* transform: skew(30deg); */
 }
-
+.name {
+  margin-bottom: 0.2em !important;
+  white-space: nowrap;
+}
 .job {
-  width: 20px;
+  width: 25px;
   position: absolute;
-  top: -5px;
+  top: -8px;
   left: 59px;
   z-index: 1;
-}
-.name {
-  white-space: nowrap;
 }
 .data-items {
   display: flex;
@@ -189,10 +192,20 @@
 .dps span.label {
   font-size: 8px;
   margin: 0 0 0 1px;
+  /* font-weight: bold; */
+}
+row.self, .dps span.label-dmg {
+  font-size: 9px;
+  margin: 0 0 0 1px;
+  /* font-weight: bold; */
+}
+row.self, .dps span.damage-stats-dps-dmg {
+  font-size: 15px;
+  font-weight: bold;
 }
 .row .maxhit {
   font-size: 0.85em;
-  margin-top: -0.3em;
+  margin-top: 0.3em;
   margin-left: -0.8em;
   text-align: center;
 }

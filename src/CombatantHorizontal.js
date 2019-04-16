@@ -102,9 +102,11 @@ export default class CombatantHorizontal extends Component {
           }`}
         >
           {jobIcon && <img src={jobIcon} className="job" alt={jobName} />}
-          <DataText type="hps" show={config.showHps} {...data} />
-          <DataText type="job" show={!config.showHps} {...data} />
-          <DataText type="dps" {...data} />
+          {config.showHps ? (
+            <DataText type="hps" showHps={config.showHps} {...data}  />
+          ) : null}
+          {!config.showHps ? (<DataText type="crit" showHps={config.showHps} {...data}  /> ) : null}
+          <DataText type="dps" showHps={config.showHps} {...data}  />
         </div>
         <DamageBar width={damageWidth} show={config.showDamagePercent} />
         <div className="maxhit">{config.showMaxhit && maxhit}</div>
@@ -127,16 +129,18 @@ function DamageBar({ width, show }) {
 
 function DataWrapper(props) {
   return (
-    <div className={props.relevant ? 'dps' : 'dps irrelevant'}>
       <div>
-        <span className="damage-stats">{props.text}</span>
-        <span className="label">{props.label}</span>
+        <span className={`damage-stats${props.showHps ? '' :'-dps'}${props.label === " DPS" ? '-dmg' : ''}`}>{props.text}</span>
+        <span className={`label${props.label === " DPS" ? '-dmg' : ''}`}>{props.label}</span>
       </div>
-    </div>
   )
 }
 
-function DataText({ type, show = true, ...data } = {}) {
+function DataText({ type, show = true, showHps, ...data } = {}) {
+  // Crit/Direct Hit Percent
+  const critPercent = `${data["crithit%"]}`.replace("%", "")
+  const directHitPercent = `${data["DirectHitPct"]}`.replace("%", "")
+  const critDirectHitPercent = `${data["CritDirectHitPct"]}`.replace("%", "")
   if (!show) return null
   let text, label, relevant
   switch (type) {
@@ -144,18 +148,28 @@ function DataText({ type, show = true, ...data } = {}) {
       text = data.ENCHPS
       label = ' HPS'
       relevant = data.ENCHPS > data.ENCDPS
+      return <div className={relevant ? 'dps' : 'dps irrelevant'}> <DataWrapper text={text} label={label} relevant={relevant} showHps={showHps} /> </div>
       break
     case 'dps':
       text = data.ENCDPS
       label = ' DPS'
       relevant = data.ENCDPS > data.ENCHPS
+      return <div className={relevant ? 'dps' : 'dps irrelevant'}>
+        {!showHps ? <div>
+                        <span className='damage-stats'></span>
+                        <span className="label"></span>
+                      </div> : null}
+        <DataWrapper text={text} label={label} showHps={showHps} /> 
+      </div>
       break
-    case 'job':
-      text = data.Job.toUpperCase()
-      label = ''
-      relevant = '1'
+    case 'crit':
+      label = '%'
+      return <div className='dps irrelevant'>
+        <DataWrapper text={"Crit: " + critPercent} label={label} showHps={showHps} />
+        <DataWrapper text={"DHit: " + directHitPercent} label={label} showHps={showHps} />
+        <DataWrapper text={"CDHit: " + critDirectHitPercent} label={label} showHps={showHps} /> 
+      </div>
       break
     default:
   }
-  return <DataWrapper text={text} label={label} relevant={relevant} />
 }

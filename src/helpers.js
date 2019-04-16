@@ -201,7 +201,10 @@ export const mockData = [
     ehps: '0.0',
     isHealing: false,
     damagePct: '36',
-    maxhit: 'Super Yey-3921'
+    maxhit: 'Super Yey-3921',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -217,7 +220,10 @@ export const mockData = [
     ehps: '0.0',
     isHealing: false,
     damagePct: '32',
-    maxhit: 'Meteor-4221'
+    maxhit: 'Meteor-4221',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -233,7 +239,10 @@ export const mockData = [
     ehps: '4.12',
     isHealing: false,
     damagePct: '22',
-    maxhit: 'Thievery-2332'
+    maxhit: 'Thievery-2332',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -249,7 +258,10 @@ export const mockData = [
     ehps: '12.10',
     isHealing: false,
     damagePct: '15',
-    maxhit: 'Alexander-8720'
+    maxhit: 'Alexander-8720',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -265,7 +277,10 @@ export const mockData = [
     ehps: '3.10',
     isHealing: false,
     damagePct: '16',
-    maxhit: "Rei's Wind-3092"
+    maxhit: "Rei's Wind-3092",
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -281,7 +296,10 @@ export const mockData = [
     ehps: '588.50',
     isHealing: false,
     damagePct: '9',
-    maxhit: 'Power Break-1251'
+    maxhit: 'Power Break-1251',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -297,7 +315,10 @@ export const mockData = [
     ehps: '112.50',
     isHealing: false,
     damagePct: '6',
-    maxhit: 'Frog Drop-9999'
+    maxhit: 'Frog Drop-9999',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -313,7 +334,10 @@ export const mockData = [
     ehps: '9821.50',
     isHealing: true,
     damagePct: '7',
-    maxhit: 'Carbuncle-9701'
+    maxhit: 'Carbuncle-9701',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -329,7 +353,10 @@ export const mockData = [
     ehps: '5661.12',
     isHealing: true,
     damagePct: '2',
-    maxhit: 'Geez-411'
+    maxhit: 'Geez-411',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   },
   {
     isSelf: false,
@@ -345,6 +372,9 @@ export const mockData = [
     ehps: '',
     isHealing: true,
     damagePct: '4',
-    maxhit: 'Limit Break-29891'
+    maxhit: 'Limit Break-29891',
+    crit: '5',
+    directhit: '10',
+    cdh: '15'
   }
 ]

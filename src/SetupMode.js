@@ -66,24 +66,51 @@ function SetupModeRaw(props) {
                       }`}
                     >
                       <div>
-                        <span className="damage-stats">
+                        <span className={`damage-stats${props.config.showHps ? '' : '-dps'}`}>
                           {props.config.showHps
                             ? mock.hps
-                            : mock.job.toUpperCase()}
+                            : "Crit: " + mock.crit
+                          }
                         </span>
                         <span className="label">
-                          {props.config.showHps ? ' HPS' : null}
+                          {props.config.showHps ? ' HPS' : '%'}
                         </span>
                       </div>
-                    </div>
+                      {props.config.showHps ? null : (
+                        <div>
+                          <span className={`damage-stats${props.config.showHps ? '' : '-dps'}`}>
+                            {"DHit: " + mock.directhit}
+                          </span>
+                          <span className="label">
+                            {'%'}
+                          </span>
+                        </div>
+                      )}
+                      {props.config.showHps ? null : (
+                        <div>
+                          <span className={`damage-stats${props.config.showHps ? '' : '-dps'}`}>
+                            {"CDHit: " + mock.cdh}
+                          </span>
+                          <span className="label">
+                            {'%'}
+                          </span>
+                        </div>
+                      )}
+                    </div>    
                     <div
                       className={`dps${
                         mock.isHealing ? ' irrelevant' : ' relevant'
                       }`}
                     >
+                    {props.config.showHps ? null : (
                       <div>
-                        <span className="damage-stats">{mock.dps}</span>
-                        <span className="label"> DPS</span>
+                        <span className='damage-stats'></span>
+                        <span className="label"></span>
+                      </div>
+                    )}
+                      <div>
+                        <span className={`damage-stats${props.config.showHps ? '' : '-dps-dmg'}`}>{mock.dps}</span>
+                        <span className={`label-dmg${props.config.showHps ? '' : '-dmg'}`}> DPS</span>
                       </div>
                     </div>
                   </div>
