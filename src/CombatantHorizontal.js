@@ -57,6 +57,9 @@ export default class CombatantHorizontal extends Component {
       10
     )}%`
 
+    //OverHeal Percent
+    const OverHealPct = `${parseInt(data["OverHealPct"].replace("%", ""))}%`
+
     // Job icon
     if (config.showJobIcon) {
       jobIcon = './'
@@ -108,7 +111,10 @@ export default class CombatantHorizontal extends Component {
           {!config.showHps ? (<DataText type="crit" showHps={config.showHps} {...data}  /> ) : null}
           <DataText type="dps" showHps={config.showHps} {...data}  />
         </div>
-        <DamageBar width={damageWidth} show={config.showDamagePercent} />
+        {['whm', 'sch', 'ast'].indexOf(jobName.toLowerCase()) >= 0
+        ?  <DamageBar width={OverHealPct} show={config.showDamagePercent} />
+        : <DamageBar width={damageWidth} show={config.showDamagePercent} />
+        }
         <div className="maxhit">{config.showMaxhit && maxhit}</div>
       </div>
     )
@@ -154,6 +160,7 @@ function DataText({ type, show = true, showHps, ...data } = {}) {
       text = data.ENCDPS
       label = ' DPS'
       relevant = data.ENCDPS > data.ENCHPS
+      // Empty div to center dps
       return <div className={relevant ? 'dps' : 'dps irrelevant'}>
         {!showHps ? <div>
                         <span className='damage-stats'></span>
@@ -165,9 +172,9 @@ function DataText({ type, show = true, showHps, ...data } = {}) {
     case 'crit':
       label = '%'
       return <div className='dps irrelevant'>
-        <DataWrapper text={"Crit: " + critPercent} label={label} showHps={showHps} />
-        <DataWrapper text={"DHit: " + directHitPercent} label={label} showHps={showHps} />
-        <DataWrapper text={"CDHit: " + critDirectHitPercent} label={label} showHps={showHps} /> 
+        <DataWrapper text={"C: " + critPercent} label={label} showHps={showHps} />
+        <DataWrapper text={"DH: " + directHitPercent} label={label} showHps={showHps} />
+        <DataWrapper text={"CDH: " + critDirectHitPercent} label={label} showHps={showHps} /> 
       </div>
       break
     default:

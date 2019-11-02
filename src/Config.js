@@ -331,6 +331,23 @@ class ConfigRaw extends Component {
               </span>
             </label>
             <label
+              htmlFor="zoom120"
+              className={`${config.zoom === '1.2' ? '' : ' disabled'}`}
+            >
+              <span>
+                <input
+                  type="radio"
+                  name="zoom"
+                  id="zoom120"
+                  value="1.2"
+                  checked={config.zoom === '1.2'}
+                  onChange={this.handleConfig}
+                />{' '}
+                {/* 120% */}
+                {loc.zoomOption5}
+              </span>
+            </label>
+            <label
               htmlFor="zoom150"
               className={`${config.zoom === '1.5' ? '' : ' disabled'}`}
             >
@@ -344,7 +361,7 @@ class ConfigRaw extends Component {
                   onChange={this.handleConfig}
                 />{' '}
                 {/* 150% */}
-                {loc.zoomOption5}
+                {loc.zoomOption6}
               </span>
             </label>
             <label
@@ -361,7 +378,7 @@ class ConfigRaw extends Component {
                   onChange={this.handleConfig}
                 />{' '}
                 {/* 200% */}
-                {loc.zoomOption6}
+                {loc.zoomOption7}
               </span>
             </label>
             <input
