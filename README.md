@@ -1,5 +1,18 @@
 # H O R I Z O V E R L A Y
 
+## Areyas Updates
+
+This is just a side project of mine to learn some js/react/nodejs as well as add some missing values that I believe are more important than HPS.
+
+Full Credit goes to [@bsides](https://github.com/bsides/horizoverlay) for their original work
+
+- When turning HPS off, it now shows crit, direct hit and cdhit %
+- When switching between the two modes, the overlay automatically updates to accomodate the extra information.
+
+Future Work
+- Add in Overheal % for healers 
+
+
 ![](https://api.travis-ci.org/bsides/horizoverlay.svg?branch=master)
 
 ## URL CHANGED AGAIN, PLEASE UPDATE TO `https://bsides.github.io/horizoverlay`
